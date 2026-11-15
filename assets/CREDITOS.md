@@ -22,3 +22,7 @@ As imagens do Pexels não são fotos do Mercado das Bebidas. Marcas visíveis n�
 `fachada-mercado.png`: fotografia fornecida pelo usuário em 15/11/2026, na captura `Captura de tela 2026-11-15 182638.png`. Editada com a ferramenta integrada imagegen para remover os controles de navegação e o texto Google Maps da captura. As pequenas áreas antes cobertas pelos controles foram reconstruídas por IA. A imagem de origem permanece preservada. O interior ainda aguarda uma foto própria.
 
 Instrução de edição: remover apenas o texto Google Maps, os dois botões circulares de setas inferiores, a seta na borda esquerda e o controle branco parcial superior esquerdo; reconstruir as áreas encobertas preservando enquadramento, fachada, entrada, refrigeradores, produtos, letreiros, logotipos, cores e Instagram, sem redesenhar o estabelecimento.
+
+## Gelo
+
+`gelo.png`: imagem fornecida pelo usuário em 15/11/2026, na captura `Captura de tela 2026-11-15 185456.png`. Arquivo preservado, sem edição, usado no card Gelo com enquadramento integral. Disponibilidade sujeita a consulta pelo WhatsApp.

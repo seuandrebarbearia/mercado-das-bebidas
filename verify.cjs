@@ -53,20 +53,21 @@ function boot(code=source){
 }
 boot(source.replace(/whatsapp: "[^"]*"/, 'whatsapp: ""'));
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
-assert.equal($$('.gallery-card').length,6);
+assert.equal($$('.gallery-card').length,7);
 for(const filter of $$('.filter')){
   filter.fire('click');
-  assert.equal($$('.gallery-card').filter(x=>!x.hidden).length,filter.dataset.filter==='todas'?6:1);
+  assert.equal($$('.gallery-card').filter(x=>!x.hidden).length,filter.dataset.filter==='todas'?7:1);
   assert.equal($$('.filter').filter(x=>x.getAttribute('aria-pressed')==='true').length,1);
 }
 $('.filter').fire('click');
 $('.menu-toggle').fire('click');assert.equal($('.menu-toggle').getAttribute('aria-expanded'),'true');
 document.fire('keydown',{key:'Escape'});assert.equal($('.menu-toggle').getAttribute('aria-expanded'),'false');
 $('.menu-toggle').fire('click');$('#main-nav').querySelector('a').fire('click');assert.equal($('.menu-toggle').getAttribute('aria-expanded'),'false');
-const opener=$('[data-gallery]');opener.fire('click');assert.equal($('#lightbox').open,true);assert.equal($('#lightbox-count').textContent,'1 / 6');
-$('.lightbox-next').fire('click');assert.equal($('#lightbox-count').textContent,'2 / 6');
-$('#lightbox').fire('keydown',{key:'ArrowLeft'});assert.equal($('#lightbox-count').textContent,'1 / 6');
-$('.lightbox-prev').fire('click');assert.equal($('#lightbox-count').textContent,'6 / 6');
+const opener=$('[data-gallery]');opener.fire('click');assert.equal($('#lightbox').open,true);assert.equal($('#lightbox-count').textContent,'1 / 7');
+$('.lightbox-next').fire('click');assert.equal($('#lightbox-count').textContent,'2 / 7');
+$('#lightbox').fire('keydown',{key:'ArrowLeft'});assert.equal($('#lightbox-count').textContent,'1 / 7');
+$('.lightbox-prev').fire('click');assert.equal($('#lightbox-count').textContent,'7 / 7');
+assert.equal($('#lightbox-title').textContent,'Gelo');
 $('.lightbox-close').fire('click');assert.equal($('#lightbox').open,false);assert.equal(document.activeElement,opener);
 $('[data-filter="vinhos"]').fire('click');$('[data-category="vinhos"]').querySelector('button').fire('click');assert.equal($('#lightbox-count').textContent,'1 / 1');assert.equal($('.lightbox-next').disabled,true);$('.lightbox-close').fire('click');
 for(const button of $$('[data-whatsapp]')){assert.equal(button.fire('click').prevented,true);assert.equal($('#contact-dialog').open,true);$('.contact-close').fire('click');assert.equal($('#contact-dialog').open,false);}
@@ -77,5 +78,5 @@ assert.equal($('[data-phone]').querySelector('a').href,'tel:+5548992233863');
 assert.equal($('[data-phone]').textContent,'(48) 99223-3863');
 for(const match of html.matchAll(/(?:src|href)="((?:assets\/)[^"]+)"/g))assert(fs.existsSync(match[1]),'Arquivo ausente: '+match[1]);
 assert.equal($$('h1').length,1);
-console.log('PASS: 7 filtros; menu mobile e Escape; galeria, setas e ciclo; foco ao fechar; 7 contatos sem número; contatos configurados; Maps; arquivos locais.');
+console.log('PASS: 8 filtros incluindo Gelo; menu mobile e Escape; galeria, setas e ciclo; foco ao fechar; contatos sem número e configurados; Maps; arquivos locais.');
 console.log('Limite: teste em DOM simulado; layout responsivo e comportamento nativo de dialog ainda requerem navegador real.');
