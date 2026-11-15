@@ -1,0 +1,8 @@
+# Pacote para transferência; o repositório mantém os arquivos originais.
+*.zip
+node_modules/
+.env
+.env.*
+!.env.example
+Thumbs.db
+desktop.ini
